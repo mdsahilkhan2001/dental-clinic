@@ -1,11 +1,22 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { WhatsAppButton } from "@/components/website/action-buttons";
+import { HeroSlider, type HeroSlide } from "@/components/website/hero-slider";
 import { siteConfig } from "@/lib/site";
 import type { SiteContent } from "@/lib/content/defaults";
+
+const HERO_SLIDES: HeroSlide[] = [
+  {
+    src: "/images/hero/hero-1.webp",
+    alt: "Jeevan Dental & Aesthetic Clinic — modern treatment room for dental, skin, hair and aesthetic care in Mahuadanr, Latehar",
+  },
+  {
+    src: "/images/hero/hero-2.webp",
+    alt: "A clinician gently examining a smiling patient at Jeevan Dental & Aesthetic Clinic",
+  },
+];
 
 export function Hero({ content }: { content: SiteContent["hero"] }) {
   return (
@@ -19,7 +30,7 @@ export function Hero({ content }: { content: SiteContent["hero"] }) {
         className="pointer-events-none absolute -bottom-48 -left-40 size-[30rem] rounded-full bg-gold-100/60 blur-3xl"
       />
 
-      <div className="container-page relative grid items-center gap-12 pb-20 pt-10 md:pb-28 md:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="container-page relative grid items-center gap-12 pb-20 pt-10 md:pb-28 md:pt-16 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
         <div className="animate-[slide-up_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">
           <p className="eyebrow">
             <Sparkles className="size-3.5" aria-hidden />
@@ -62,18 +73,9 @@ export function Hero({ content }: { content: SiteContent["hero"] }) {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-xl)] border border-border shadow-[var(--shadow-elevated)]">
-            <Image
-              src="/images/clinic/operatory-wide.jpg"
-              alt="Treatment room at Jeevan Dental & Aesthetic Clinic with a modern dental chair and clinician workstation"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute -bottom-5 -left-4 hidden max-w-[15rem] rounded-[var(--radius-lg)] border border-border bg-background/95 p-4 shadow-[var(--shadow-card)] backdrop-blur sm:block">
+        <div className="relative animate-[fade-in_0.9s_ease_both]">
+          <HeroSlider slides={HERO_SLIDES} />
+          <div className="absolute -bottom-5 -left-4 hidden max-w-[14rem] rounded-[var(--radius-lg)] border border-border bg-background/95 p-4 shadow-[var(--shadow-card)] backdrop-blur sm:block">
             <div className="flex items-center gap-2 text-sm font-semibold text-primary">
               <ShieldCheck className="size-4 text-accent" aria-hidden />
               Hygienic, modern care
