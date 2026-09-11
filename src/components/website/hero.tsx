@@ -75,16 +75,7 @@ export function Hero({ content }: { content: SiteContent["hero"] }) {
 
         <div className="relative animate-[fade-in_0.9s_ease_both]">
           <HeroSlider slides={HERO_SLIDES} />
-          <div className="absolute -bottom-5 -left-4 hidden max-w-[14rem] rounded-[var(--radius-lg)] border border-border bg-background/95 p-4 shadow-[var(--shadow-card)] backdrop-blur sm:block">
-            <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-              <ShieldCheck className="size-4 text-accent" aria-hidden />
-              Hygienic, modern care
-            </div>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Sterilised instruments and prepared treatment areas for every
-              patient.
-            </p>
-          </div>
+           
         </div>
       </div>
     </section>
